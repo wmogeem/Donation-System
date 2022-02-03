@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Donation System</string>
     <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
     <string name="user">Email</string>
     <string name="password">Password</string>
+    <string name="name">Full name</string>
+    <string name="id">National ID</string>
+    <string name="phone">Phone</string>
+    <string name="dob">Date of birth</string>
 </resources>
