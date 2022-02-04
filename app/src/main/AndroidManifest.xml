@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DonationSystem">
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activity.NavigationActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".activity.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

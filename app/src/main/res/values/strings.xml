@@ -8,4 +8,6 @@
     <string name="id">National ID</string>
     <string name="phone">Phone</string>
     <string name="dob">Date of birth</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
