@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.NavigationActivity">
+    tools:context=".activity.NavigationActivity"
+    android:background="@color/background">
 
    <FrameLayout
        android:id="@+id/fragment_container"
@@ -41,7 +42,7 @@
         app:maxImageSize="30dp"
         android:backgroundTint="@color/white"
         app:layout_anchor="@id/bottom_nav"
-        app:borderWidth="0dp"
+        app:borderWidth="2dp"
         app:tint="@color/blue"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
