@@ -13,4 +13,12 @@
     <string name="salary">Salary</string>
     <string name="emp">Employee</string>
     <string name="age">Age</string>
+    <string name="numOfCards">Card 1</string>
+    <string name="cardNum">**** **** **** 5555</string>
+    <string name="currency">SR</string>
+    <string name="statement">The amount in your wallet is</string>
+    <string name="balance">100.00</string>
+    <string name="expDate">12/22</string>
+    <string name="addWallet">Add to wallet</string>
+    <string name="addCard">Add a card</string>
 </resources>
