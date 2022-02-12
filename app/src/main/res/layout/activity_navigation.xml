@@ -11,8 +11,7 @@
    <FrameLayout
        android:id="@+id/fragment_container"
        android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:layout_marginBottom="59dp"/>
+       android:layout_height="match_parent"/>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_nav"
@@ -42,7 +41,8 @@
         app:maxImageSize="30dp"
         android:backgroundTint="@color/white"
         app:layout_anchor="@id/bottom_nav"
-        app:borderWidth="2dp"
+        app:borderWidth="0dp"
+        app:elevation="10dp"
         app:tint="@color/blue"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

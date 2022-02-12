@@ -22,7 +22,6 @@
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:src="@drawable/top_rounded_rec_gradiant"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -180,7 +179,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="@id/vr"
+                app:layout_constraintStart_toEndOf="@id/vr"
                 app:layout_constraintTop_toBottomOf="@id/banner"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="10dp"
@@ -212,11 +211,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="@id/stat_icon"
+                app:layout_constraintStart_toEndOf="@id/stat_icon"
                 app:layout_constraintTop_toBottomOf="@id/banner"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginTop="40dp"
-                android:layout_marginStart="50dp">
+                android:layout_marginStart="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -262,7 +261,6 @@
                     android:textSize="14sp"
                     android:textColor="@color/blue"
                     android:layout_marginBottom="20dp"/>
-
 
             </LinearLayout>
 
