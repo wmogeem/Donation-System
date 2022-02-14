@@ -3,7 +3,12 @@ package io.github.ifariskh.donationsystem.core;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -15,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -23,7 +29,9 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
+import io.github.ifariskh.donationsystem.activity.SignUpActivity;
 import io.github.ifariskh.donationsystem.helper.Constant;
 
 public class User {
@@ -81,7 +89,10 @@ public class User {
         this.dob = dob;
     }
 
-    public void register(String password, Context ctx, TextInputLayout eEmail, TextInputLayout eId) {
+    public void register(String password, Context ctx, TextInputLayout eEmail, TextInputLayout eId,
+                         ImageView icon, MaterialCardView cardView,
+                         LinearLayout otpText, TextView verf, TextView stmt,
+                         Button confirm, Button back) {
         ProgressDialog progressDialog = new ProgressDialog(ctx);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Signing up");
@@ -95,7 +106,7 @@ public class User {
                         Log.d("SignUp", "Response: " + response.toString());
                         progressDialog.dismiss();
                         try{
-                            JSONObject jObj = new JSONObject(response);
+                            JSONObject jObj = new JSONObject(response.substring(response.indexOf("{"), response.lastIndexOf("}") + 1));
                             String msg = jObj.getString("msg");
                             switch (msg){
                                 case "Id":
@@ -115,7 +126,15 @@ public class User {
                                     eId.setError(null);
                                     eEmail.setErrorEnabled(false);
                                     eId.setErrorEnabled(false);
-                                    Toast.makeText(ctx, jObj.getString("msg"), Toast.LENGTH_LONG).show();
+                                    icon.setVisibility(View.INVISIBLE);
+                                    cardView.setVisibility(View.INVISIBLE);
+                                    otpText.setVisibility(View.VISIBLE);
+                                    verf.setVisibility(View.VISIBLE);
+                                    stmt.setVisibility(View.VISIBLE);
+                                    confirm.setVisibility(View.VISIBLE);
+                                    back.setVisibility(View.VISIBLE);
+                                    SignUpActivity.otp = jObj.getString("otp");
+                                    Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
                             }
                         }catch (JSONException e){
                             e.printStackTrace();

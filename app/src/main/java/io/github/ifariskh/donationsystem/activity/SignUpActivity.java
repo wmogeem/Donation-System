@@ -3,16 +3,25 @@ package io.github.ifariskh.donationsystem.activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Calendar;
+import java.util.Random;
 import java.util.regex.Pattern;
 
 import io.github.ifariskh.donationsystem.R;
@@ -21,8 +30,14 @@ import io.github.ifariskh.donationsystem.core.User;
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextInputLayout fullName, email, id, password, phone;
-    private EditText dob;
-    private Button signInBt, singUpBt;
+    private EditText dob, otp1, otp2, otp3, otp4;
+    private Button signInBt, singUpBt, confirm, back;
+    private LinearLayout otpText;
+    private ImageView icon;
+    private MaterialCardView cardView;
+    private TextView verf, stmt;
+    private User user;
+    public static String otp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +52,24 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         dob = findViewById(R.id.dob);
         signInBt = findViewById(R.id.sign_in_button);
         singUpBt = findViewById(R.id.sign_up_button);
+        confirm = findViewById(R.id.confirm_button);
+        back = findViewById(R.id.back_button);
+        otpText = findViewById(R.id.otp_text);
+        icon = findViewById(R.id.sign_up_icon);
+        cardView = findViewById(R.id.container);
+        stmt = findViewById(R.id.sent);
+        verf = findViewById(R.id.verification);
+        otp1 = findViewById(R.id.otp1);
+        otp2 = findViewById(R.id.otp2);
+        otp3 = findViewById(R.id.otp3);
+        otp4 = findViewById(R.id.otp4);
 
         initCalender();
 
         signInBt.setOnClickListener(this);
         singUpBt.setOnClickListener(this);
+        confirm.setOnClickListener(this);
+        back.setOnClickListener(this);
     }
 
     private void initCalender() {
@@ -176,16 +204,29 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.sign_up_button:
                 if (validateFullName() && validateEmail() && validateId() && validatePassword() && validatePhone() && validateDOB()) {
-                    User user = new User(
+                    user = new User(
                             fullName.getEditText().getText().toString().trim(),
                             email.getEditText().getText().toString().trim(),
                             id.getEditText().getText().toString().trim(),
                             phone.getEditText().getText().toString().trim(),
                             dob.getText().toString().trim()
                     );
-                    user.register(password.getEditText().getText().toString().trim(), this, email, id);
-
+                    user.register(password.getEditText().getText().toString().trim(), this, email, id,
+                            icon, cardView, otpText, verf, stmt, confirm, back);
                 }
+                break;
+            case R.id.confirm_button:
+                String inputOTP = otp1.getText().toString() + otp2.getText().toString() + otp3.getText().toString() + otp4.getText().toString();
+                Log.d("TAG", "Validate: " + (inputOTP.equals(otp)));
+                break;
+            case R.id.back_button:
+                icon.setVisibility(View.VISIBLE);
+                cardView.setVisibility(View.VISIBLE);
+                otpText.setVisibility(View.VISIBLE);
+                verf.setVisibility(View.GONE);
+                stmt.setVisibility(View.GONE);
+                confirm.setVisibility(View.GONE);
+                back.setVisibility(View.GONE);
                 break;
         }
     }
