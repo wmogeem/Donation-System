@@ -3,6 +3,6 @@ Senior Project CPIT-499 KAU
 
 Students:
 * Faris Khaymi
-* Mohamed Harssani
+* Mohamed Harasani
 * Alwaleed Mogeem
 
