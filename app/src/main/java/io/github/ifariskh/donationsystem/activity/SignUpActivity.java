@@ -156,6 +156,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         return true;
     }
 
+    private boolean validateDOB() {
+        String val = dob.getText().toString().trim();
+        if (val.isEmpty()) {
+            dob.setError("");
+            return false;
+        } else {
+            dob.setError(null, null);
+        }
+        return true;
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -164,7 +175,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(intent);
                 break;
             case R.id.sign_up_button:
-                if (validateFullName() && validateEmail() && validateId() && validatePassword() && validatePhone()) {
+                if (validateFullName() && validateEmail() && validateId() && validatePassword() && validatePhone() && validateDOB()) {
                     User user = new User(
                             fullName.getEditText().getText().toString().trim(),
                             email.getEditText().getText().toString().trim(),
@@ -172,10 +183,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             phone.getEditText().getText().toString().trim(),
                             dob.getText().toString().trim()
                     );
-                    user.register(password.getEditText().getText().toString().trim(), this);
-                }
+                    user.register(password.getEditText().getText().toString().trim(), this, email, id);
 
+                }
                 break;
         }
     }
+
+
 }
