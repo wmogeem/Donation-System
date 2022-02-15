@@ -89,10 +89,7 @@ public class User {
         this.dob = dob;
     }
 
-    public void register(String password, Context ctx, TextInputLayout eEmail, TextInputLayout eId,
-                         ImageView icon, MaterialCardView cardView,
-                         LinearLayout otpText, TextView verf, TextView stmt,
-                         Button confirm, Button back) {
+    public void register(String password, Context ctx, TextInputLayout eEmail, TextInputLayout eId) {
         ProgressDialog progressDialog = new ProgressDialog(ctx);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("Signing up");
@@ -103,7 +100,7 @@ public class User {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("SignUp", "Response: " + response.toString());
+                        Log.d("SignUp", "Response: " + response);
                         progressDialog.dismiss();
                         try{
                             JSONObject jObj = new JSONObject(response.substring(response.indexOf("{"), response.lastIndexOf("}") + 1));
@@ -126,14 +123,6 @@ public class User {
                                     eId.setError(null);
                                     eEmail.setErrorEnabled(false);
                                     eId.setErrorEnabled(false);
-                                    icon.setVisibility(View.INVISIBLE);
-                                    cardView.setVisibility(View.INVISIBLE);
-                                    otpText.setVisibility(View.VISIBLE);
-                                    verf.setVisibility(View.VISIBLE);
-                                    stmt.setVisibility(View.VISIBLE);
-                                    confirm.setVisibility(View.VISIBLE);
-                                    back.setVisibility(View.VISIBLE);
-                                    SignUpActivity.otp = jObj.getString("otp");
                                     Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
                             }
                         }catch (JSONException e){
