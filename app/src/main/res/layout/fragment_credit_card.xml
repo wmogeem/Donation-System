@@ -1,105 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".fragment.CreditCardFragment">
 
 
+    <ImageView
+
+        android:layout_width="220dp"
+        android:layout_height="230dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_circle"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.525" />
+    <ImageView
+
+        android:layout_width="210dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_circle_white"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.525" />
 
     <ImageView
-        android:contentDescription="@null"
+        android:id="@+id/imageView"
         android:layout_width="350dp"
         android:layout_height="240dp"
+        android:contentDescription="@null"
         android:paddingVertical="40dp"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/rec"/>
+        android:src="@drawable/rec"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="50dp"
-        android:layout_marginHorizontal="50dp"
+
         android:text="@string/numOfCards"
+        android:textColor="@color/white"
         android:textSize="30sp"
-        android:textColor="@color/white"/>
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.28" />
+
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="110dp"
-        android:layout_marginHorizontal="55dp"
         android:text="@string/cardNum"
+        android:textColor="@color/white"
         android:textSize="20sp"
-        android:textColor="@color/white"/>
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.488" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="140dp"
-        android:layout_marginHorizontal="55dp"
+
         android:text="@string/expDate"
+        android:textColor="@color/white"
         android:textSize="18sp"
-        android:textColor="@color/white"/>
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.643" />
+
     <ImageView
-        android:contentDescription="@null"
+        android:id="@+id/imageView2"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginVertical="165dp"
-        android:layout_marginHorizontal="55dp"
-        android:src="@drawable/mastercard"/>
+
+        android:contentDescription="@null"
+        android:src="@drawable/mastercard"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.776" />
 
     <ImageView
-        android:contentDescription="@null"
         android:id="@+id/amount"
         android:layout_width="200dp"
         android:layout_height="210dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_circle"/>
+        android:contentDescription="@null"
+        android:src="@drawable/ic_circle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.525" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="240dp"
+        android:id="@+id/textView3"
+        android:layout_width="249dp"
+        android:layout_height="21dp"
         android:text="@string/statement"
-        android:textSize="20sp"
         android:textColor="@color/gray"
-        android:layout_gravity="center_horizontal"/>
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/amount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="320dp"
+
         android:text="@string/balance"
-        android:textSize="40sp"
         android:textColor="@color/white"
-        android:layout_gravity="center_horizontal"/>
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/amount"
+        app:layout_constraintEnd_toEndOf="@+id/amount"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/amount"
+        app:layout_constraintTop_toTopOf="@+id/amount"
+        app:layout_constraintVertical_bias="0.292" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="66dp"
-        android:layout_marginHorizontal="175dp"
-        android:layout_marginVertical="370dp"
+        android:id="@+id/textView2"
+        android:layout_width="75dp"
+
+        android:layout_height="71dp"
         android:text="@string/currency"
         android:textColor="@color/white"
-        android:textSize="40sp"/>
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="@+id/amount"
+        app:layout_constraintEnd_toEndOf="@+id/amount"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/amount"
+        app:layout_constraintTop_toTopOf="@+id/amount"
+        app:layout_constraintVertical_bias="0.755" />
 
     <Button
         android:id="@+id/addWallet"
         android:layout_width="wrap_content"
-        android:layout_height="37dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginVertical="455dp"
-        android:textColor="@color/blue"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:text="@string/addWallet" />
+        android:text="@string/addWallet"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amount" />
+
     <Button
         android:id="@+id/addCard"
         android:layout_width="wrap_content"
-        android:layout_height="37dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginVertical="495dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
+        android:text="@string/addCard"
         android:textColor="@color/blue"
-        android:text="@string/addCard" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addWallet" />
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
